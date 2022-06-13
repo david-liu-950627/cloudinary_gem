@@ -163,7 +163,7 @@ module Cloudinary::CarrierWave
     super
 
     column = model.send(:_mounter, mounted_as).send(:serialization_column)
-    identifier = model.send(:attribute, column)
+    identifier = model.send(:read_attribute, column)
     retrieve_from_store!(identifier) unless identifier.nil?
   end
 end
